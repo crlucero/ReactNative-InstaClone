@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import config from './config';
 
 class NewProject extends Component {
   constructor() {
@@ -33,8 +34,13 @@ class NewProject extends Component {
             />
             <Text style={{ marginLeft: 5 }}> LeBron James</Text>
           </View>
-          <View style={{ alignItems: 'center' }}>
-            <Text style={{ fontSize: 30 }}>...</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            {/* DM USER BUTTON */}
+            <Image
+              style={[styles.icon, { height: 25, width: 25, marginRight: 20 }]}
+              source={config.images.arrowIcon}
+            />
+            <Text style={{ fontSize: 30, marginBottom: 15 }}>...</Text>
           </View>
         </View>
         <Image
@@ -46,6 +52,36 @@ class NewProject extends Component {
             uri: imageUri
           }}
         />
+        <View style={styles.iconBar}>
+          {/* LIKE BUTTON */}
+          <Image
+            style={[styles.icon, { height: 32, width: 32, marginLeft: 10 }]}
+            source={config.images.heartIcon}
+          />
+          {/* COMMENT BUTTON */}
+          <Image
+            style={[styles.icon, { height: 28, width: 28, marginTop: 11 }]}
+            source={config.images.chatIcon}
+          />
+          {/* SEND POST BUTTON */}
+          <Image
+            style={[styles.icon, { height: 23, width: 23, marginTop: 14 }]}
+            source={config.images.airplaneIcon}
+          />
+          {/* BOOKMARK BUTTON */}
+          <Image
+            style={[
+              styles.icon,
+              {
+                height: 27,
+                width: 27,
+                marginTop: 14,
+                marginLeft: 210
+              }
+            ]}
+            source={config.images.bookmarkIcon}
+          />
+        </View>
       </View>
     );
   }
@@ -64,7 +100,7 @@ const styles = StyleSheet.create({
   },
   userBar: {
     width: 100 + '%',
-    height: 55,
+    height: config.styleConstants.rowHeight,
     backgroundColor: 'white',
     flexDirection: 'row',
     paddingHorizontal: 10,
@@ -74,6 +110,18 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 20
+  },
+  iconBar: {
+    height: config.styleConstants.rowHeight,
+    width: 100 + '%',
+    borderColor: 'darkgrey',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    flexDirection: 'row'
+  },
+  icon: {
+    marginVertical: 9,
+    marginLeft: 18
   }
 });
 
