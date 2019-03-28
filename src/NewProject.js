@@ -5,18 +5,18 @@ class NewProject extends Component {
   constructor() {
     super();
     this.state = {
-      screenWidth: 0
+      screenWidth: Dimensions.get('window').width
     };
   }
 
-  componentDidMount() {
-    // When comp mounts, get window width and save that with setState
-    this.setState({
-      screenWidth: Dimensions.get('window').width
-    });
-  }
-
   render() {
+    const imageHeight = Math.floor(this.state.screenWidth * 1.1);
+    const imageUri =
+      'https://lh3.googleusercontent.com/BZc9tE_QtLx5EzqBshDqR8yZPZagNdkmWsp4PryantEvW5SrToz5Y1RS6jl1Yma6k7n-4WbN4TJDLuNIgN56PZ1rxg' +
+      '=s' +
+      imageHeight +
+      '-c';
+
     return (
       <View style={{ flex: 1, width: 100 + '%', height: 50 + '%' }}>
         <View style={styles.tempNav}>
@@ -38,10 +38,12 @@ class NewProject extends Component {
           </View>
         </View>
         <Image
-          style={{ width: this.state.screenWidth, height: 100 }}
+          style={{
+            width: this.state.screenWidth,
+            height: 400
+          }}
           source={{
-            uri:
-              'https://lh3.googleusercontent.com/BZc9tE_QtLx5EzqBshDqR8yZPZagNdkmWsp4PryantEvW5SrToz5Y1RS6jl1Yma6k7n-4WbN4TJDLuNIgN56PZ1rxg'
+            uri: imageUri
           }}
         />
       </View>
