@@ -26,11 +26,11 @@ class Post extends Component {
 
   render() {
     const imageHeight = Math.floor(this.state.screenWidth * 1.1);
-    const imageUri =
-      'https://lh3.googleusercontent.com/BZc9tE_QtLx5EzqBshDqR8yZPZagNdkmWsp4PryantEvW5SrToz5Y1RS6jl1Yma6k7n-4WbN4TJDLuNIgN56PZ1rxg' +
-      '=s' +
-      imageHeight +
-      '-c';
+    const imageSelection =
+      this.props.item % 2 === 0
+        ? 'https://lh3.googleusercontent.com/UTx_tKDeJhbt4ryb5l05mIb3_33xI2e5h8RVcQlOtSGy0jwnwELYSx8YsHhbHNreKGkmQOD0Z9M5aMEt5JqMH88MhF4'
+        : 'https://lh3.googleusercontent.com/BZc9tE_QtLx5EzqBshDqR8yZPZagNdkmWsp4PryantEvW5SrToz5Y1RS6jl1Yma6k7n-4WbN4TJDLuNIgN56PZ1rxg';
+    const imageUri = imageSelection + '=s' + imageHeight + '-c';
     // If picture is clicked, change heartIconColor to red
     const heartIconColor = this.state.liked ? 'rgb(178,34,34)' : null;
 
